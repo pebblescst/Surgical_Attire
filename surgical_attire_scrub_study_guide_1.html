@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surgical Attire & Scrub — Surgical Technologist Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #132240;
+    --navy-light: #1e3560;
+    --teal: #00b4b0;
+    --teal-dim: #007f7d;
+    --teal-pale: #e0f7f7;
+    --gold: #c8963e;
+    --gold-pale: #fdf3e2;
+    --red: #b03030;
+    --red-pale: #fdeaea;
+    --green: #1e7a4a;
+    --green-pale: #e5f5ec;
+    --purple: #5b3d9e;
+    --purple-pale: #eeebf9;
+    --slate: #4a5568;
+    --muted: #718096;
+    --border: #dde3ec;
+    --bg: #f5f7fb;
+    --white: #ffffff;
+    --text: #1a202c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,180,176,0.15) 0%, transparent 70%);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 25%;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,61,158,0.1) 0%, transparent 70%);
+  }
+  .header-inner { max-width: 960px; margin: 0 auto; position: relative; }
+  .header-kicker {
+    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--teal); font-weight: 600; margin-bottom: 8px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem; color: #fff; line-height: 1.15; margin-bottom: 8px;
+  }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+  .header-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.25rem; }
+  .hbadge {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+    padding: 4px 12px; border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.07);
+  }
+
+  /* ── NAV ── */
+  .nav-wrap {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    max-width: 960px; margin: 0 auto;
+    display: flex; overflow-x: auto; scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex-shrink: 0; padding: 1rem 1.4rem;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+    color: var(--muted); border: none; background: transparent;
+    cursor: pointer; border-bottom: 3px solid transparent;
+    transition: color 0.18s, border-color 0.18s; white-space: nowrap;
+  }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active { color: var(--navy); border-bottom-color: var(--teal); }
+  .tab-icon { display: inline-block; margin-right: 6px; font-size: 14px; }
+
+  /* ── CONTENT ── */
+  .content-wrap { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── HEADINGS ── */
+  .section-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.55rem; color: var(--navy); margin-bottom: 4px;
+  }
+  .section-sub {
+    color: var(--muted); font-size: 13px;
+    margin-bottom: 1.75rem; padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sub-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+    text-transform: uppercase; color: var(--muted); margin: 1.5rem 0 0.75rem;
+  }
+
+  /* ── ALERTS ── */
+  .alert {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 16px; border-radius: 10px;
+    margin-bottom: 1.25rem; font-size: 14px; line-height: 1.6;
+  }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-teal   { background: var(--teal-pale);   border-left: 4px solid var(--teal); }
+  .alert-gold   { background: var(--gold-pale);   border-left: 4px solid var(--gold); }
+  .alert-red    { background: var(--red-pale);    border-left: 4px solid var(--red); }
+  .alert-green  { background: var(--green-pale);  border-left: 4px solid var(--green); }
+  .alert-purple { background: var(--purple-pale); border-left: 4px solid var(--purple); }
+  .alert-navy   { background: #e8ecf4;            border-left: 4px solid var(--navy-light); }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1rem; margin-bottom: 1.25rem;
+  }
+  .card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem 1.35rem;
+  }
+  .card-full { grid-column: 1 / -1; }
+  .card-title {
+    font-size: 12px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .card-title-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 6px; font-size: 13px;
+  }
+  .icon-teal   { background: var(--teal-pale);   color: var(--teal-dim); }
+  .icon-gold   { background: var(--gold-pale);   color: var(--gold); }
+  .icon-red    { background: var(--red-pale);    color: var(--red); }
+  .icon-green  { background: var(--green-pale);  color: var(--green); }
+  .icon-navy   { background: #e8ecf4;            color: var(--navy); }
+  .icon-purple { background: var(--purple-pale); color: var(--purple); }
+
+  /* ── LISTS ── */
+  ul.detail-list { list-style: none; padding: 0; }
+  ul.detail-list li {
+    padding: 7px 0 7px 22px; position: relative;
+    font-size: 14px; color: var(--slate);
+    border-bottom: 1px solid var(--bg); line-height: 1.6;
+  }
+  ul.detail-list li:last-child { border-bottom: none; }
+  ul.detail-list li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--teal); font-size: 11px; top: 9px;
+  }
+  ul.detail-list li strong { color: var(--text); }
+  ul.detail-list ul.sub-list li::before { content: none; }
+
+  ul.sub-list {
+    margin-top: 6px; padding-left: 1rem;
+    list-style: disc; color: var(--muted); font-size: 13px;
+  }
+  ul.sub-list li { padding: 2px 0; border: none; }
+
+  /* ── STEPS ── */
+  .steps {
+    display: flex; flex-direction: column; gap: 0;
+    counter-reset: step; position: relative; padding-left: 38px;
+  }
+  .steps::before {
+    content: ''; position: absolute;
+    left: 15px; top: 20px; bottom: 20px;
+    width: 2px; background: var(--border);
+  }
+  .step-item { position: relative; padding: 0 0 18px 0; counter-increment: step; }
+  .step-item::before {
+    content: counter(step);
+    position: absolute; left: -38px; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; z-index: 1;
+  }
+  .step-item p { font-size: 14px; color: var(--slate); line-height: 1.6; }
+  .step-item strong { color: var(--text); font-weight: 600; }
+
+  /* ── BADGES ── */
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.3px; padding: 3px 9px; border-radius: 100px;
+  }
+  .badge-teal   { background: var(--teal-pale);   color: var(--teal-dim); }
+  .badge-red    { background: var(--red-pale);    color: var(--red); }
+  .badge-gold   { background: var(--gold-pale);   color: #a07020; }
+  .badge-green  { background: var(--green-pale);  color: var(--green); }
+  .badge-navy   { background: #e8ecf4;            color: var(--navy-light); }
+  .badge-purple { background: var(--purple-pale); color: var(--purple); }
+
+  /* ── TABLE ── */
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px;
+    background: var(--white); border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--border); margin-bottom: 1.25rem;
+  }
+  .data-table th {
+    background: var(--navy); color: #fff;
+    padding: 11px 14px; text-align: left;
+    font-weight: 600; font-size: 12px; letter-spacing: 0.5px;
+  }
+  .data-table td {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    color: var(--slate); vertical-align: top; line-height: 1.5;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: var(--bg); }
+
+  /* ── ACCORDION ── */
+  .accordion { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; }
+  .acc-head {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px; background: var(--navy); cursor: pointer; user-select: none;
+  }
+  .acc-head:hover { background: var(--navy-mid); }
+  .acc-head-left { flex: 1; }
+  .acc-head-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 2px; }
+  .acc-head-title { font-size: 15px; font-weight: 600; color: #fff; }
+  .acc-chevron { color: rgba(255,255,255,0.5); font-size: 16px; transition: transform 0.2s; flex-shrink: 0; }
+  .acc-chevron.open { transform: rotate(180deg); }
+  .acc-body { display: none; padding: 18px; border-top: 1px solid var(--border); }
+  .acc-body.open { display: block; }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px; margin-bottom: 1.25rem;
+  }
+  .stat-box {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 12px; text-align: center;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif; font-size: 1.5rem;
+    color: var(--navy); line-height: 1; margin-bottom: 4px;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* ── RANKED LIST ── */
+  .ranked-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.25rem; }
+  .ranked-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 12px 14px; border-radius: 10px;
+    background: var(--white); border: 1px solid var(--border);
+  }
+  .rank-num {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .r1 { background: var(--green-pale); color: var(--green); }
+  .r2 { background: var(--teal-pale);  color: var(--teal-dim); }
+  .r3 { background: var(--gold-pale);  color: var(--gold); }
+  .r4 { background: #e8ecf4;           color: var(--navy-light); }
+  .r5 { background: var(--purple-pale);color: var(--purple); }
+  .ranked-content p { font-size: 14px; color: var(--slate); line-height: 1.55; }
+  .ranked-content strong { color: var(--text); }
+
+  /* ── DO/DON'T GRID ── */
+  .do-dont {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem;
+  }
+  .do-box {
+    border-radius: 10px; padding: 14px;
+    border: 1px solid var(--border);
+  }
+  .do-box-header {
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .do-box.green { background: var(--green-pale); border-color: #a8d5bc; }
+  .do-box.green .do-box-header { color: var(--green); }
+  .do-box.red   { background: var(--red-pale);   border-color: #e8aaaa; }
+  .do-box.red .do-box-header   { color: var(--red); }
+  .do-box ul { list-style: none; padding: 0; }
+  .do-box ul li { font-size: 13px; line-height: 1.55; padding: 3px 0 3px 18px; position: relative; color: var(--slate); }
+  .do-box.green ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 12px; }
+  .do-box.red   ul li::before { content: '✕'; position: absolute; left: 0; color: var(--red);   font-weight: 700; font-size: 12px; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:600px){
+    .header h1 { font-size: 1.6rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .stat-row  { grid-template-columns: repeat(2,1fr); }
+    .do-dont   { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-kicker">AST Standards of Practice · CST Reference</div>
+    <h1>Surgical Attire & Scrub</h1>
+    <p class="header-sub">Surgical Attire · Surgical Scrub · Hand Hygiene & Hand Washing — Study Guide</p>
+    <div class="header-badges">
+      <span class="hbadge">Standard Precautions</span>
+      <span class="hbadge">FDA Scrub Standards</span>
+      <span class="hbadge">OSHA Bloodborne Pathogens</span>
+      <span class="hbadge">CDC Hand Hygiene</span>
+      <span class="hbadge">SSI Prevention</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showTab('attire', this)"><span class="tab-icon">👕</span>Surgical Attire</button>
+    <button class="nav-tab" onclick="showTab('scrub', this)"><span class="tab-icon">🖐️</span>Surgical Scrub</button>
+    <button class="nav-tab" onclick="showTab('hygiene', this)"><span class="tab-icon">🧴</span>Hand Hygiene & Washing</button>
+    <button class="nav-tab" onclick="showTab('solutions', this)"><span class="tab-icon">🔬</span>Scrub Solutions & Standards</button>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- ════════════════════════════════════
+       TAB 1: SURGICAL ATTIRE
+  ════════════════════════════════════ -->
+  <div id="attire" class="section active">
+    <h2 class="section-heading">Surgical Attire</h2>
+    <p class="section-sub">Standard I: proper attire requirements for semi-restricted and restricted areas — head covers, masks, scrub suits, jackets, cover apparel, shoe covers, and footwear. Effective April 13, 2008.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Core purpose:</strong> Surgical attire aids in containing the shedding and dispersal of skin squames into the environment. The human body is a major source of bacterial contamination in the surgical environment. SSIs have been traced to bacteria from the hair, scalp, and skin of surgical personnel. The goal is to maintain a limited microbial spread to protect the patient and staff.</div>
+    </div>
+
+    <!-- DONNING ORDER -->
+    <p class="sub-label">Correct donning order</p>
+    <div class="alert alert-gold">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Head cover is always donned first</strong> — before changing into the scrub suit. This prevents shedding of hair, squamous cells, and dandruff onto the scrub suit.</div>
+    </div>
+
+    <!-- HEAD COVERS -->
+    <p class="sub-label">Head covers (Standard I-A)</p>
+    <div class="do-dont">
+      <div class="do-box green">
+        <div class="do-box-header">✓ Required / Recommended</div>
+        <ul>
+          <li>Lint-free head covers that cover all head and facial hair</li>
+          <li>Disposable bouffant or hood covers for all OR personnel</li>
+          <li>Hood covers recommended for personnel with facial hair — completely covers facial hair</li>
+          <li>Donned first — before donning the scrub suit</li>
+          <li>If reusable cloth cap worn: laundered daily in healthcare facility or accredited third-party laundry</li>
+          <li>Replaced immediately if contaminated with blood or body fluids</li>
+          <li>Disposable covers discarded in designated receptacle after use</li>
+        </ul>
+      </div>
+      <div class="do-box red">
+        <div class="do-box-header">✕ Not Recommended</div>
+        <ul>
+          <li>Surgeon's skull caps — do not completely cover the hair, exposing patients to SSI risk</li>
+          <li>Reusable cloth caps — not recommended per AST; if used, must follow strict laundering policy</li>
+          <li>Any head cover that does not cover all head and facial hair</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MASKS -->
+    <p class="sub-label">Surgical masks (Standard I-B)</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">😷</span>Proper mask use</div>
+        <ul class="detail-list">
+          <li>Must be worn at <strong>all times in restricted areas</strong>, including sub-sterile rooms and at scrub sinks</li>
+          <li>Mandated by OSHA Bloodborne Pathogens Standard — protects mucous membranes (eyes, nose, mouth) from splashes/sprays of blood and body fluids</li>
+          <li>Must completely cover the nose and mouth</li>
+          <li>Fit comfortably and securely — prevents venting at the sides (venting allows entry or dispersal of infectious microbes)</li>
+          <li>Pliable metal or plastic noseband contoured to bridge of nose for close fit; tape noseband area to prevent fogging of safety eyewear</li>
+          <li><strong>Must be secured before starting the surgical scrub</strong></li>
+          <li>Non-scrubbing personnel talking with a person performing the scrub must also wear a mask</li>
+          <li>A new mask should be used for each procedure, or changed frequently and if it becomes wet or contaminated</li>
+          <li>If using a string-tied mask: handle only by the strings when discarding; discard immediately into biohazard waste; perform hand wash after removal</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">🚫</span>Mask violations to avoid</div>
+        <ul class="detail-list">
+          <li>Masks must be <strong>on or completely off</strong> — never allowed to hang around the neck</li>
+          <li>Must never be folded and placed in a pocket for later use — used masks harbor multiple microbes that can be transferred to the scrub suit and dispersed into the environment</li>
+          <li>Never worn improperly — venting at sides defeats the mask's protective purpose</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SCRUB SUIT -->
+    <p class="sub-label">Scrub suit (Standard I-C)</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-green">✅</span>Required practices</div>
+        <ul class="detail-list">
+          <li>Healthcare facility-approved, <strong>clean, freshly laundered</strong> scrub suit designated for perioperative use</li>
+          <li>Donned in the healthcare facility designated changing room — reduces environmental contamination</li>
+          <li>Head cover donned before the scrub suit</li>
+          <li>Two-piece scrub suit: <strong>shirt must be tucked into pants</strong> — contains skin squames and prevents billowing that could contaminate a sterile surface</li>
+          <li>T-shirts worn under the scrub shirt must be completely covered — must not extend above the neck or below the sleeves</li>
+          <li>If contaminated with blood, body fluids, or OPIM: change as soon as possible; don freshly laundered attire</li>
+          <li>Laundered by healthcare facility laundry or accredited third-party facility</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">🚫</span>Prohibited practices</div>
+        <ul class="detail-list">
+          <li>Must not be worn outside the healthcare facility — contact with external microbes would be transported back in</li>
+          <li>Used scrub suit must not be stored in a locker or hung in the changing room to be re-worn</li>
+          <li>Must be placed in the proper receptacle for used attire after wearing</li>
+          <li><strong>100% cotton fabric not recommended:</strong>
+            <ul class="sub-list">
+              <li>Large pores allow dispersal of skin squames into the environment</li>
+              <li>High level of shedding lint</li>
+              <li>Highly flammable — does not meet federal flammability standards</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-purple">
+      <span class="alert-icon">🧵</span>
+      <div><strong>Recommended fabric: 100% spunbound polypropylene.</strong> Tightly woven to prevent skin squames from being released through fabric pores into the environment. Provides comfort and breathability while containing microbial spread. Cotton fabrics have large pores and are not tightly woven — squames pass through freely.</div>
+    </div>
+
+    <!-- WARM-UP JACKET -->
+    <p class="sub-label">Warm-up jacket (Standard I-D)</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-navy">🧥</span>Non-sterile team members (circulator, anesthesia provider)</div>
+      <ul class="detail-list">
+        <li>Healthcare facility-approved, freshly laundered, <strong>long-sleeved warm-up jacket</strong> worn in semi-restricted and restricted areas</li>
+        <li>Contains skin squames shed from the arms and axillary regions</li>
+        <li>Must be <strong>fully snapped or zipped shut</strong> — prevents billowing outward that could contaminate a sterile surface or item</li>
+        <li>CST performing the surgical scrub: jacket must be <strong>completely removed before scrubbing</strong> — not tied around the waist</li>
+      </ul>
+    </div>
+
+    <!-- COVER APPAREL -->
+    <p class="sub-label">Cover apparel (Standard I-E)</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-navy">🥼</span>Leaving the surgery department</div>
+      <ul class="detail-list">
+        <li>A lab coat, cover gown, or appropriate clothing must be worn when exiting the surgery department</li>
+        <li>Must be <strong>long-sleeve and full-length (knee length)</strong></li>
+        <li>Must be <strong>completely fastened</strong> when leaving — protects the integrity of the scrub suit and may eliminate the need to don a freshly laundered scrub suit upon reentry (reduces costs)</li>
+        <li>Must be <strong>removed before entering semi-restricted or restricted areas</strong></li>
+        <li>Healthcare facility policies and procedures govern cover apparel use</li>
+      </ul>
+    </div>
+
+    <!-- SHOE COVERS -->
+    <p class="sub-label">Shoe covers (Standard I-F)</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">👟</span>Standard shoe cover rules</div>
+        <ul class="detail-list">
+          <li><strong>Fluid-resistant disposable shoe covers</strong> worn in semi-restricted and restricted areas</li>
+          <li>Note: shoe covers have never been proven to decrease SSI risk or reduce OR floor bacterial counts — their purpose is to protect footwear and feet from blood and body fluid exposure</li>
+          <li>Worn when contact with blood/body fluids, splashes, or spills is anticipated</li>
+          <li><strong>Knee-high impervious boot covers</strong> required when large amounts of irrigation fluid or blood/body fluid loss are anticipated</li>
+          <li>Must be changed daily</li>
+          <li>Changed as soon as possible if soiled, contaminated, torn, or moist/wet — wear non-sterile gloves when removing contaminated covers</li>
+          <li>Discarded in a designated receptacle</li>
+          <li>Kept in close proximity to the semi-restricted area</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">🚫</span>Shoe cover prohibitions</div>
+        <ul class="detail-list">
+          <li>Must <strong>not be worn outside the surgical department</strong> — avoids tracking blood, body fluids, debris, and gross contaminants throughout the facility</li>
+          <li>Must be <strong>removed before entering the changing room</strong> and when leaving the surgical department</li>
+          <li>Clean shoe covers must be donned upon returning to semi-restricted/restricted areas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FOOTWEAR -->
+    <p class="sub-label">Footwear (Standard I-G)</p>
+    <div class="do-dont">
+      <div class="do-box green">
+        <div class="do-box-header">✓ Recommended footwear</div>
+        <ul>
+          <li>Rubber boots or leather shoes — good protection</li>
+          <li>Low heels recommended</li>
+          <li>Comfortable, supportive, breathable, and protective</li>
+          <li>Kept clean and in good repair; gross contaminants cleaned immediately</li>
+          <li>If designated for OR use only and worn without shoe covers: must not be worn outside the department</li>
+        </ul>
+      </div>
+      <div class="do-box red">
+        <div class="do-box-header">✕ Prohibited footwear</div>
+        <ul>
+          <li>Sandals in the surgery department</li>
+          <li>Shoes made of soft materials</li>
+          <li>Open-toe shoes</li>
+          <li>Open-heel shoes</li>
+          <li>High-heeled footwear</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       TAB 2: SURGICAL SCRUB
+  ════════════════════════════════════ -->
+  <div id="scrub" class="section">
+    <h2 class="section-heading">Surgical Scrub</h2>
+    <p class="section-sub">Standards II – VIII: pre-scrub requirements, nail and skin inspection, jewelry removal, scrub technique, scrub duration research, and brushless scrub.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Core purpose:</strong> The surgical scrub removes transient skin flora from fingernails, hands, and forearms; reduces the resident microbial population to an irreducible minimum; and slows bacterial growth to reduce the risk of SSI — especially critical if a glove is punctured or torn. When a non-antimicrobial agent is used, bacteria rapidly multiply under surgical gloves.</div>
+    </div>
+
+    <!-- PRE-SCRUB -->
+    <p class="sub-label">Pre-scrub activities (Standard III)</p>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard III · Fingernails</div>
+          <div class="acc-head-title">Fingernail requirements & artificial nails</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Fingernails must be kept <strong>clean and must not extend beyond the fingertips</strong></li>
+          <li>Long fingernails can puncture gloves, placing the patient at SSI risk from transient and resident skin flora; also risk of patient injury during direct care</li>
+          <li>The <strong>subungual area</strong> (under the nail) harbors the majority of microorganisms on the hand — clean with a sterile, plastic, single-use, disposable nail cleaner under running water at the scrub sink</li>
+          <li>Reusable nail cleaners are not recommended</li>
+          <li><strong>Orangewood sticks must not be used</strong> — wood tends to splinter and harbor Pseudomonas organisms</li>
+          <li>Disposable nail cleaner disposed per healthcare facility policy and must not be discarded into the scrub sink — prevents cross-contamination</li>
+          <li><strong>Nail polish:</strong> if worn, must be freshly applied and free of chips. Chipped polish or polish worn more than four days harbors a greater number of bacteria than unpolished nails. Follow facility policy.</li>
+          <li><strong>Artificial nails and silk overlays are prohibited</strong> for any member of the surgical team regardless of role — cultures show increased bacterial and fungal counts vs. non-wearers; greater hand carriage of Gram-negative organisms demonstrated among wearers</li>
+          <li>Cuticles should be kept <strong>clean and intact — must not be trimmed or cut</strong> (cutting disrupts the skin barrier)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard III · Skin Integrity</div>
+          <div class="acc-head-title">Skin inspection before scrubbing</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>The intact skin layer is the first line of defense against microbial invasion for both the patient and team member</li>
+          <li>Damaged skin (burns, lesions, abrasions, cuts) creates an opening for microbes — places both patient and team member at risk for infection</li>
+          <li>Exudate from burns, lesions, or cuts can transfer pathogens to the patient if they contact the surgical field</li>
+          <li>The skin of the hands and forearms must be <strong>inspected prior to performing the surgical scrub</strong> to confirm integrity</li>
+          <li>If a break in skin integrity exists, the team member must determine whether the damage prevents participating as a sterile team member</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard III · Jewelry</div>
+          <div class="acc-head-title">Jewelry removal — rings, bracelets, watches</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>All jewelry including rings, bracelets, and watches must be removed <strong>prior to performing the surgical scrub</strong></li>
+          <li>Jewelry is not sterile and harbors microorganisms</li>
+          <li>Studies show a significant increase in bioload on hands of ring-wearing personnel after hand washing vs. non-ring-wearing personnel</li>
+          <li>Skin underneath rings is more heavily colonized than non-ring-covered areas</li>
+          <li>Bioload and microorganism concentration increase <strong>exponentially</strong> correlated to the number of rings worn</li>
+          <li>Jewelry removal allows the scrub solution to make full contact with all skin surfaces, sides (planes) of fingers, hands, and forearms</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SCRUB TECHNIQUE -->
+    <p class="sub-label">Surgical scrub technique (Standard VII)</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="steps">
+        <div class="step-item"><p><strong>Prewash the hands and forearms</strong> with non-antimicrobial soap and water. (If hands are visibly dirty or contaminated, a prewash is required before using an alcohol-based solution.)</p></div>
+        <div class="step-item"><p><strong>Clean the subungual area</strong> with a disposable nail cleaner under running water. Do not discard the nail cleaner into the scrub sink — dispose per facility policy to prevent cross-contamination of the scrub sink.</p></div>
+        <div class="step-item"><p><strong>Begin scrubbing at the fingertips</strong> — work from fingertips ending 2 inches above the elbows without returning to a previously cleaned area. Visualize each finger, hand, and forearm as having <strong>four planes (sides)</strong> that must be thoroughly scrubbed, including the web spaces between each digit.</p></div>
+        <div class="step-item"><p><strong>Scrub one hand and forearm</strong> completely, then switch the scrub brush to the other hand and scrub the second hand and forearm.</p></div>
+        <div class="step-item"><p><strong>Hold hands higher than elbows</strong> throughout — water runs from fingertips toward the elbows. Keep hands and arms away from scrub attire while keeping elbows flexed. Water running toward the hands (from elbows down) would contaminate cleaned areas and could wet the scrub suit causing strike-through.</p></div>
+        <div class="step-item"><p><strong>Conserve water:</strong> turn water off when not in use during the scrub, if possible.</p></div>
+        <div class="step-item"><p><strong>Dispose of the scrub brush</strong> per healthcare facility policy — must not be discarded into the scrub sink to prevent cross-contamination.</p></div>
+        <div class="step-item"><p><strong>Upon entering the OR, thoroughly dry hands and arms using aseptic technique</strong> (fingertips to elbows, single direction, one side of towel per area) prior to donning the sterile gown. If an alcohol-based solution was used, hands and arms must be <strong>completely dry</strong> before gowning.</p></div>
+      </div>
+    </div>
+
+    <!-- SCRUB DURATION -->
+    <p class="sub-label">Scrub duration — research summary (Standard VII)</p>
+    <div class="alert alert-navy">
+      <span class="alert-icon">📊</span>
+      <div>No single study has definitively established the ideal scrub duration. APIC states the ideal duration has not been established and may be related to the type of scrub solution used. Healthcare facilities should use this evidence to establish their own optimal policy.</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">2 min</div>
+        <div class="stat-label">American College of Surgeons minimum recommended duration</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3–4 min</div>
+        <div class="stat-label">European/Australian studies: as effective as a 5-minute scrub</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5 min</div>
+        <div class="stat-label">Multiple studies: as effective as a 10-minute scrub in reducing microbial count</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">2–3 min</div>
+        <div class="stat-label">Other studies: reduces microbial count to an acceptable level</div>
+      </div>
+    </div>
+    <div class="alert alert-green">
+      <span class="alert-icon">✅</span>
+      <div><strong>Two-stage scrub:</strong> An antiseptic agent followed by an alcohol-containing preparation is as effective as a 5-minute scrub with antiseptic alone. Shorter scrub time benefits include less skin damage and water conservation.</div>
+    </div>
+
+    <p class="sub-label">Scrub method</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">⏱️</span>Anatomical timed method</div>
+        <ul class="detail-list">
+          <li>Scrub performed for a set amount of time per anatomical area (e.g., each finger, palm, back of hand, forearm)</li>
+          <li>Duration governed by healthcare facility policy and scrub solution manufacturer's instructions</li>
+          <li>Both the anatomical timed method and counted stroke method are acceptable</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-navy">🔢</span>Counted stroke method</div>
+        <ul class="detail-list">
+          <li>A set number of strokes applied to each anatomical area — fingers, nails, hands, forearms</li>
+          <li>Both the counted stroke method and anatomical timed method are acceptable</li>
+          <li>Healthcare facility policy governs which method is used</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════
+       TAB 3: HAND HYGIENE & WASHING
+  ════════════════════════════════════ -->
+  <div id="hygiene" class="section">
+    <h2 class="section-heading">Hand Hygiene & Hand Washing</h2>
+    <p class="section-sub">Standards IX – X: daily hand hygiene practices, when to perform hand washing, proper technique, acceptable products, and lotion guidance.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Core principle:</strong> Hand washing is the simplest and least expensive method for preventing cross-contamination. The surgical scrub is not a substitute for hand washing — it is equally important for surgical personnel to wash hands between patient contacts as in any other healthcare department.</div>
+    </div>
+
+    <!-- HAND HYGIENE -->
+    <p class="sub-label">Daily hand hygiene (Standard IX)</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-teal">🙌</span>Daily hygiene focuses on</div>
+        <ul class="detail-list">
+          <li>Preventing abrasions, cuts, and open lesions that break the integrity of the skin</li>
+          <li>Proper care of the fingernails and cuticles (see Surgical Scrub tab)</li>
+          <li>Preventing over-drying of the skin that leads to discomfort and breaks in the skin barrier</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-gold">💧</span>Lotions — approved use</div>
+        <ul class="detail-list">
+          <li>Lotions aid in preventing skin drying and maintaining overall skin health</li>
+          <li>Surgical team members should be involved in the lotion selection process</li>
+          <li>Lotion must be approved by the healthcare facility infection control officer</li>
+          <li>Must be <strong>verified and documented</strong> that the lotion does not disrupt the effectiveness of the antiseptic scrubbing agent or sterile gloves</li>
+          <li>Many over-the-counter lotions counteract the cumulative antimicrobial properties of chlorhexidine gluconate</li>
+          <li><strong>Petroleum-containing lotions</strong> break down latex gloves, increasing permeability — must not be used</li>
+          <li>Review manufacturer's information before selecting a lotion product</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WHEN TO WASH -->
+    <p class="sub-label">When to perform hand washing (Standard X) — CDC & APIC recommendations</p>
+    <div class="ranked-list">
+      <div class="ranked-item">
+        <div class="rank-num r1">A</div>
+        <div class="ranked-content"><p><strong>Between patient contacts</strong> — including between all contacts with patients in the operating room</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r2">B</div>
+        <div class="ranked-content"><p><strong>Before and after assisting with invasive procedures</strong> — including placing sterile-gloved hands onto or within a surgical and/or traumatic wound</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r3">C</div>
+        <div class="ranked-content"><p><strong>After removal of non-sterile or sterile gloves</strong> — gloves are not a substitute for hand washing. High risk of contamination occurs when a healthcare worker removes gloves and reaches into a glove box without washing first (risk of contaminating the opening and gloves inside the box)</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r4">D</div>
+        <div class="ranked-content"><p><strong>After handling or touching a fomite</strong> — such as emptying a Foley catheter bag or handling equipment</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r5">E</div>
+        <div class="ranked-content"><p><strong>After contact with blood and body fluids</strong> — including cleaning up blood from the OR floor, handling soiled linen and waste</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r1">F</div>
+        <div class="ranked-content"><p><strong>Between patient care on different body regions of the same patient</strong> — e.g., after inserting a urethral catheter and then performing a dressing change on the leg, to prevent cross-contamination</p></div>
+      </div>
+    </div>
+
+    <!-- TECHNIQUE -->
+    <p class="sub-label">Hand washing technique (Standard X)</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-teal">🖐️</span>Proper technique</div>
+      <ul class="detail-list">
+        <li>Use a <strong>topical antimicrobial agent</strong> that removes transient and resident microorganisms</li>
+        <li>Perform for a <strong>minimum of 20 seconds</strong> applying friction to all surfaces of the hands and fingers, including under the nails</li>
+        <li>Remove all jewelry (rings, watches) before performing the hand wash</li>
+        <li>If the faucet is not knee- or foot-operated, it must be turned off using a paper towel</li>
+        <li>Drying options: cloth towels, paper towels, or air dryers — all methods proven to further reduce the microbial count</li>
+        <li>Container of antimicrobial agent must be positioned close to the sink — studies show if the agent is not adjacent to the sink or in a convenient location, healthcare workers neglect performing routine hand washing</li>
+      </ul>
+    </div>
+
+    <!-- ACCEPTABLE PRODUCTS -->
+    <p class="sub-label">Acceptable alternatives to traditional sink hand washing</p>
+    <div class="card-grid">
+      <div class="card card-full">
+        <div class="card-title"><span class="card-title-icon icon-purple">🧴</span>Products acceptable in lieu of traditional sink hand wash</div>
+        <ul class="detail-list">
+          <li>Hygienic hand rub products</li>
+          <li>Hand wipes impregnated with alcohol</li>
+          <li>Foams consisting of an alcohol and antimicrobial agent mixture</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       TAB 4: SCRUB SOLUTIONS & STANDARDS
+  ════════════════════════════════════ -->
+  <div id="solutions" class="section">
+    <h2 class="section-heading">Scrub Solutions & Standards</h2>
+    <p class="section-sub">Standards IV – VI: FDA requirements for scrub solutions, alcohol-based agents, effectiveness rankings, dispensing container rules, and storage requirements.</p>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">🎯</span>
+      <div><strong>Key principle:</strong> Healthcare facilities must provide an FDA-approved scrub solution with immediate, cumulative, and persistent antimicrobial action. Surgical personnel and the infection control officer must be involved in evaluating and selecting scrub solutions — their involvement contributes to compliance with hand washing and scrub procedures. Cost must not be a factor in the decision-making process.</div>
+    </div>
+
+    <!-- FDA STANDARDS -->
+    <p class="sub-label">FDA standards for scrub solutions (Standard V)</p>
+    <div class="card" style="margin-bottom:1.25rem">
+      <div class="card-title"><span class="card-title-icon icon-navy">🏛️</span>Required properties — FDA Division of Over-the-Counter Drug Products</div>
+      <ul class="detail-list">
+        <li>Substantially reduce transient microorganisms on the skin</li>
+        <li>Possess a <strong>broad-spectrum</strong> of antimicrobial properties</li>
+        <li>Be <strong>fast-acting</strong></li>
+        <li>Provide <strong>persistent, cumulative antimicrobial activity</strong></li>
+        <li>Be a <strong>nonirritating</strong> antimicrobial preparation</li>
+        <li>Immediately and persistently reduce bacteria on hands and forearms after the scrub — immediate and persistent activity are the most important evaluation criteria</li>
+        <li>Ability to provide long-term cumulative activity</li>
+        <li>Evaluation must include review of manufacturer's documentation confirming the solution was tested according to FDA requirements</li>
+      </ul>
+    </div>
+
+    <!-- EFFECTIVENESS RANKING -->
+    <p class="sub-label">Antimicrobial agent effectiveness ranking</p>
+    <div class="ranked-list">
+      <div class="ranked-item">
+        <div class="rank-num r1">1</div>
+        <div class="ranked-content"><p><strong>Alcohol-based solution with 0.5%–1% chlorhexidine gluconate (CHG)</strong> — persistent antimicrobial activity equal to or greater than CHG alone. Greatest immediate and residual microbial reduction. Gold standard.</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r2">2</div>
+        <div class="ranked-content"><p><strong>Chlorhexidine gluconate (CHG) alone</strong> — next most effective after alcohol-CHG combination. Broad-spectrum, persistent activity.</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r3">3</div>
+        <div class="ranked-content"><p><strong>Iodophors</strong> — broad-spectrum; considered among the next most effective scrubbing agents after CHG.</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r4">4</div>
+        <div class="ranked-content"><p><strong>Triclosan</strong> — listed among the next most effective scrubbing agents.</p></div>
+      </div>
+      <div class="ranked-item">
+        <div class="rank-num r5">5</div>
+        <div class="ranked-content"><p><strong>PCMX (parachlorometaxylenol)</strong> — studies have produced contradictory results; further research required to determine efficacy with other scrubbing agents. Not definitively established.</p></div>
+      </div>
+    </div>
+
+    <!-- ALCOHOL-BASED SOLUTIONS -->
+    <p class="sub-label">Alcohol-based solutions — detailed (Standard VI)</p>
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard VI · Efficacy</div>
+          <div class="acc-head-title">Antimicrobial properties of alcohol-based solutions</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Antimicrobial action: <strong>denaturing of proteins</strong></li>
+          <li>Alcohol solutions containing <strong>60%–95% alcohol are most effective</strong> — solutions higher in concentration are less effective because protein denaturing does not easily occur in the absence of water</li>
+          <li>Broad-spectrum: destroys Gram-positive and Gram-negative bacteria, multidrug-resistant pathogens including <strong>MRSA and VRE</strong>, Mycobacterium tuberculosis, and fungi</li>
+          <li>Rapid activity when applied to skin</li>
+          <li>Alcohol alone does <strong>not</strong> have persistent, cumulative activity — when combined with another scrub agent (e.g., CHG), persistent and cumulative activity results</li>
+          <li>Therefore, if a facility uses alcohol, it must be an <strong>alcohol-based combination solution</strong> (not alcohol alone)</li>
+          <li>Alcohol-based solutions immediately lower microbial count on the skin post-scrub more effectively than other scrub solutions</li>
+          <li>Alcohol is the gold standard for hand washing and surgical scrub in Europe, where it has been used extensively for years with a very low incidence of fires</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard VI · Usage Rules</div>
+          <div class="acc-head-title">When NOT to use alcohol-based solutions & drying requirements</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li><strong>Do not use when hands/forearms are visibly dirty or contaminated</strong> with proteinaceous materials — proteinaceous material decreases the antimicrobial action of alcohol</li>
+          <li>If hands are visibly soiled: prewash with non-antimicrobial soap unless contamination with Bacillus anthracis is suspected — in that case antimicrobial soap must be used</li>
+          <li>Hands and forearms must be <strong>thoroughly dried before applying</strong> the alcohol-based solution</li>
+          <li>The surgical team member must allow hands and forearms to be <strong>completely dry before donning sterile gown and gloves</strong> after using an alcohol-based solution</li>
+          <li>Healthcare facility procedure for performing the scrub should follow <strong>manufacturer's instructions</strong> since instructions can vary by solution</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <div class="acc-head-left">
+          <div class="acc-head-tag">Standard VI · Fire Safety</div>
+          <div class="acc-head-title">Alcohol storage & fire safety requirements</div>
+        </div>
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="detail-list">
+          <li>Alcohols are a flammable liquid — must be properly stored per <strong>NFPA recommendations</strong> and local/state regulations</li>
+          <li>Stored in a dry, cool area approved for flammable storage — away from flames, heating vents, and high temperatures</li>
+          <li>Solution dispensing containers must be <strong>away from light switches</strong> (source of sparks) and sources of heat — but still in a convenient location for the surgical team</li>
+          <li>Because alcohols are highly volatile, dispensing containers must be designed to <strong>prevent evaporation</strong></li>
+          <li>Careful planning required for placement of dispensing containers in the perioperative environment</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DISPENSING CONTAINERS -->
+    <p class="sub-label">Scrub solution dispensing containers (Standard IV)</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-green">✅</span>Required container standards</div>
+        <ul class="detail-list">
+          <li>Must be a <strong>closed container with a lid</strong> — open containers are prohibited</li>
+          <li>Single-use containers are recommended; discarded when empty per facility policy</li>
+          <li>If reusable containers are used: evaluate for ease of cleaning (including tubing and dispensing spout), long-term functionality, and ability of tubing/spout to remain obstruction-free</li>
+          <li>Reusable containers should ideally be able to be sterilized between uses</li>
+          <li>Container must be dry before refilling — water dilutes scrub solution and reduces microbial effectiveness</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon icon-red">🚫</span>Container prohibitions</div>
+        <ul class="detail-list">
+          <li><strong>Never refill or "top off" a container</strong> without first fully decontaminating it — refilling without decontamination causes contamination of both the solution and container, creating a cross-contamination risk</li>
+          <li>Decontamination process before reuse must include cleaning the outside and inside of the container, sterilizing if possible, and ensuring the container is completely dry</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GLOSSARY / REFERENCE TABLE -->
+    <p class="sub-label">Key terms & quick reference</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Term / Concept</th><th>Key Details</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Transient microorganisms</strong></td><td>Microbes on the surface of the skin acquired through contact; removed by hand washing and surgical scrub</td></tr>
+        <tr><td><strong>Resident microorganisms</strong></td><td>Microbes that normally reside on the skin; reduced to an irreducible minimum by the surgical scrub but not completely eliminated</td></tr>
+        <tr><td><strong>Subungual area</strong></td><td>The area beneath the fingernail — harbors the majority of microorganisms on the hand; must be cleaned with a disposable nail cleaner under running water</td></tr>
+        <tr><td><strong>Skin squames</strong></td><td>Shed skin cells that carry microorganisms into the environment; contained by proper surgical attire (tightly woven fabric, tucked scrub shirt, warm-up jacket)</td></tr>
+        <tr><td><strong>Strike-through contamination</strong></td><td>Fluid penetrating through a microbial barrier (gown or drape), carrying microorganisms through to the sterile side; prevented by keeping hands above elbows during the scrub and thoroughly drying before gowning</td></tr>
+        <tr><td><strong>Cumulative activity</strong></td><td>The progressive, additive antimicrobial effect of repeated scrub solution use over time; an FDA requirement for approved scrub solutions</td></tr>
+        <tr><td><strong>Persistent activity</strong></td><td>Continued antimicrobial action after the scrub agent is applied and dried; prevents rapid regrowth of bacteria. Together with immediate activity, considered the most important property of scrub solutions.</td></tr>
+        <tr><td><strong>Chlorhexidine gluconate (CHG)</strong></td><td>A commonly used antiseptic scrubbing agent with broad-spectrum and persistent antimicrobial activity; combined with alcohol for greatest effectiveness</td></tr>
+        <tr><td><strong>MRSA / VRE</strong></td><td>Multidrug-resistant pathogens destroyed by alcohol-based solutions; highlight the importance of effective surgical scrub agents</td></tr>
+        <tr><td><strong>PCMX</strong></td><td>Parachlorometaxylenol; scrubbing agent with contradictory study results; further research required to establish efficacy</td></tr>
+        <tr><td><strong>Anatomical timed method</strong></td><td>Surgical scrub performed for a set duration per anatomical area; one of two acceptable scrub methods</td></tr>
+        <tr><td><strong>Counted stroke method</strong></td><td>Surgical scrub performed using a set number of strokes per anatomical area; one of two acceptable scrub methods</td></tr>
+        <tr><td><strong>Bouffant / hood cover</strong></td><td>Disposable head covers providing complete coverage of head and facial hair; recommended for all OR personnel. Hood covers specifically recommended for personnel with facial hair.</td></tr>
+        <tr><td><strong>Semi-restricted area</strong></td><td>Area of the surgery department where surgical attire is required but sterile technique is not mandatory (e.g., hallways, instrument processing areas)</td></tr>
+        <tr><td><strong>Restricted area</strong></td><td>Area of the surgery department where sterile technique is practiced and masks are required at all times (e.g., operating rooms, scrub sink areas, sub-sterile rooms)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end content-wrap -->
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleAcc(head) {
+  const body = head.nextElementSibling;
+  const chevron = head.querySelector('.acc-chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const firstHead = document.querySelector('.acc-head');
+  if (firstHead) toggleAcc(firstHead);
+});
+</script>
+</body>
+</html>
